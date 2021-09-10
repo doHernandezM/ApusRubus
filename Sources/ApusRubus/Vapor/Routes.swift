@@ -9,7 +9,7 @@ public func routes(_ app: Application) throws {
     let routeController = RouteController()
     try app.register(collection: routeController)
     
-            let misterRoutes = app.grouped("Rubus","*")
+            let misterRoutes = app.grouped("Rubus")
             misterRoutes.get(use: setRubusHandler)
             misterRoutes.get(":device",":mode", use: setRubusHandler)
             
