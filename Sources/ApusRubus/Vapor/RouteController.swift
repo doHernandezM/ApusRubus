@@ -10,7 +10,7 @@ import SwiftyPi
 
 struct RouteController: RouteCollection {
     func boot(routes: RoutesBuilder) throws {
-        let misterRoutes = routes.grouped("mister")
+        let misterRoutes = routes.grouped("mister","*")
         misterRoutes.get(use: setMisterHandler)
         misterRoutes.get(":device",":mode", use: setMisterHandler)
 
