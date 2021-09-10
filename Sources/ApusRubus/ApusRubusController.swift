@@ -13,7 +13,7 @@ public let vaporController: VaporController = VaporController()
 
 open class ApusRubusController {
     
-    init() {
+    public init() {
         vaporController.startVapor()
     }
 }
