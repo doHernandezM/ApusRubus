@@ -5,5 +5,6 @@ Have an idea for a Raspberry Pi project, but Swift is your jam? Switches, PWM, A
 Once this project is up and running it will consist of some sort of macOS config app, and either pre built rPi binaries or a custom build script.
 
 This package is heavily based on and would not be possible without:
+
 • [SwiftyGPIO](https://github.com/uraimo/SwiftyGPIO).
 • [Vapor](https://github.com/vapor/vapor).
