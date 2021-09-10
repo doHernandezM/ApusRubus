@@ -26,6 +26,7 @@ public class VaporController {
             app!.http.server.configuration.hostname = "0.0.0.0"
             // register routes
             try routes(app!)
+            print(app!.routes.all)
             try app!.run()
         } catch {
             env = nil
