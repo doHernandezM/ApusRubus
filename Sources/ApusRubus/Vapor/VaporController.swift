@@ -31,7 +31,7 @@ public class VaporController {
         }
     }
     
-    func routes() throws {
+   public func routes() throws {
         app!.get { req in
             return req.redirect(to: "https://www.youtube.com/watch?v=RfiQYRn7fBg")
         }
