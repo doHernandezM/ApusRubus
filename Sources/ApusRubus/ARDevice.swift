@@ -8,7 +8,7 @@
 import Foundation
 import SwiftyPi
 
-class ARDevice: SwiftyPiDevice {
+open class ARDevice: SwiftyPiDevice {
     
     override init(state: SwiftyPiDeviceState, device: Int) {
         super.init(state: state, device: device)
