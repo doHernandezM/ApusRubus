@@ -5,6 +5,7 @@
 //  Created by Dennis Hernandez on 9/6/21.
 // Moved Vapor to it's own controller for tidiness
 
+import Leaf
 import Vapor
 
 public class VaporController {
@@ -21,7 +22,10 @@ public class VaporController {
             try LoggingSystem.bootstrap(from: &env!)
             app = Application(env!)
             defer { app!.shutdown() }
-            try configure(app!)
+            app!.http.server.configuration.port = 8080
+            app!.http.server.configuration.hostname = "0.0.0.0"
+            // register routes
+            try routes(app!)
             try app!.run()
         } catch {
             env = nil
@@ -31,27 +35,22 @@ public class VaporController {
         }
     }
     
-   public func routes() throws {
-        app!.get { req in
-            return req.redirect(to: "https://www.youtube.com/watch?v=RfiQYRn7fBg")
-        }
-        
-        let routeController = RouteController()
-        try app!.register(collection: routeController)
-        
-        let misterRoutes = app!.grouped("Rubus","*")
-        misterRoutes.get(use: setRubusHandler)
-        misterRoutes.get(":device",":mode", use: setRubusHandler)
-        
-        
-    }
+//   public func routes() throws {
+//        app!.get { req in
+//            return req.redirect(to: "https://www.youtube.com/watch?v=RfiQYRn7fBg")
+//        }
+//        
+//        let routeController = RouteController()
+//        try app!.register(collection: routeController)
+//        
+//        let misterRoutes = app!.grouped("Rubus","*")
+//        misterRoutes.get(use: setRubusHandler)
+//        misterRoutes.get(":device",":mode", use: setRubusHandler)
+//        
+//        
+//    }
     
-    func setRubusHandler(_ req: Request) -> String {
-        let mode = req.parameters.get("mode")
-        let dev = req.parameters.get("device")
-        print(dev!,mode!)
-        return "Dev:\(dev) Mode:\(mode)"
-    }
+    
     
     public func stopVapor() {
         app!.shutdown()
