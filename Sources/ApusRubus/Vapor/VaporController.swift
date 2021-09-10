@@ -31,9 +31,31 @@ public class VaporController {
         }
     }
     
-    func stopVapor() {
+    func routes() throws {
+        app!.get { req in
+            return req.redirect(to: "https://www.youtube.com/watch?v=RfiQYRn7fBg")
+        }
+        
+        let routeController = RouteController()
+        try app!.register(collection: routeController)
+        
+        let misterRoutes = app!.grouped("Rubus","*")
+        misterRoutes.get(use: setRubusHandler)
+        misterRoutes.get(":device",":mode", use: setRubusHandler)
+        
+        
+    }
+    
+    func setRubusHandler(_ req: Request) -> String {
+        let mode = req.parameters.get("mode")
+        let dev = req.parameters.get("device")
+        print(dev!,mode!)
+        return "Dev:\(dev) Mode:\(mode)"
+    }
+    
+    public func stopVapor() {
         app!.shutdown()
         app = nil
         env = nil
-        }
+    }
 }

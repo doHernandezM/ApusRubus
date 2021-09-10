@@ -16,6 +16,11 @@ open class ApusRubusController {
     public init() {
         vaporController.startVapor()
     }
+
+    public func newRoute() {
+        
+    }
+
 }
 
 protocol ApusRubusDelegate {
