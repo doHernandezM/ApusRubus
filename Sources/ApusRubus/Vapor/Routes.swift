@@ -17,6 +17,6 @@ public func routes(_ app: Application) throws {
 public func setRubusHandler(_ req: Request) -> String {
     let mode = req.parameters.get("mode")
     let dev = req.parameters.get("device")
-    print(dev!,mode!)
+    print("Dev:\(dev) Mode:\(mode)")
     return "Dev:\(dev) Mode:\(mode)"
 }
