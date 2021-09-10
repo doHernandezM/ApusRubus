@@ -11,7 +11,7 @@ import SwiftyPi
 public let vaporController: VaporController = VaporController()
 
 
-class ApusRubusController {
+public class ApusRubusController {
     
     init() {
         vaporController.startVapor()
