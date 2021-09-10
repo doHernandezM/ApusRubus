@@ -1,3 +1,3 @@
-struct ApusRubus {
+class ApusRubus {
     var text = "Hello, World!"
 }
