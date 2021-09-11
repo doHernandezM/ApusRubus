@@ -14,7 +14,12 @@ public let vaporController: VaporController = VaporController()
 open class ApusRubusController {
     
     public init() {
-        vaporController.startVapor()
+        do {
+            try vaporController.start()
+        }
+        catch {
+            print("caught")
+        }
     }
 
     public func newRoute() {

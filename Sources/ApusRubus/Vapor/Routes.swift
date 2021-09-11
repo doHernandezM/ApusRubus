@@ -9,7 +9,7 @@ public func routes(_ app: Application) throws {
     let routeController = RouteController()
     try app.register(collection: routeController)
     
-            let misterRoutes = app.grouped("Rubus",":device",":mode")
+            let misterRoutes = app.grouped(":device",":mode")
             misterRoutes.get(use: setRubusHandler)
             misterRoutes.get(":device",":mode", use: setRubusHandler)
             
@@ -17,6 +17,7 @@ public func routes(_ app: Application) throws {
 public func setRubusHandler(_ req: Request) -> String {
     let mode = req.parameters.get("mode")
     let dev = req.parameters.get("device")
+    
     print("Dev:\(dev) Mode:\(mode)")
     return "Dev:\(dev) Mode:\(mode)"
 }

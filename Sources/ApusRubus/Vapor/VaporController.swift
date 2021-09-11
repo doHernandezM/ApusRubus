@@ -16,7 +16,7 @@ public class VaporController {
     public init() {
     }
     
-    public func startVapor() {
+    public func start() throws {
         do {
             env = try Environment.detect()
             try LoggingSystem.bootstrap(from: &env!)
