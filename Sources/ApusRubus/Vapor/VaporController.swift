@@ -28,7 +28,14 @@ public class VaporController {
             // register routes
             try routes(app!)
             print(app!.routes.all)
-            try app!.run()
+           
+            
+            
+            _ = try app(.detect()).asyncRun()
+            RunLoop.main.run()
+        
+            
+//            try app!.run()
         } catch {
             env = nil
             app = nil
