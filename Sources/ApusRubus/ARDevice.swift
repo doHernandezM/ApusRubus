@@ -10,7 +10,7 @@ import SwiftyPi
 
 open class ARDevice: SwiftyPiDevice {
     
-    override init(state: SwiftyPiDeviceState, device: Int) {
+    public override init(state: SwiftyPiDeviceState, device: Int) {
         super.init(state: state, device: device)
         
     }

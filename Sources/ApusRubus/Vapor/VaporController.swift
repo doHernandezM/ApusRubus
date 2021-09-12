@@ -27,15 +27,9 @@ public class VaporController {
             app!.http.server.configuration.hostname = "0.0.0.0"
             // register routes
             try routes(app!)
-            print(app!.routes.all)
-           
+//            print(app!.routes.all)
             
-            
-            _ = try app(.detect()).asyncRun()
-            RunLoop.main.run()
-        
-            
-//            try app!.run()
+            try app!.run()
         } catch {
             env = nil
             app = nil
