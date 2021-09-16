@@ -29,11 +29,19 @@ public class VaporController {
             try routes(app!)
 //            print(app!.routes.all)
             
-            try app!.run()
+//            try app!.run()
+            
+            do {
+                try app!.start()
+            } catch {
+                app!.logger.report(error: error)
+                throw error
+            }
+            
         } catch {
             env = nil
             app = nil
-            print("Vapor Init Error")
+            print("Vapor Init Error\(error.localizedDescription)")
             return
         }
     }
