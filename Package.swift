@@ -16,7 +16,6 @@ let package = Package(
             targets: ["ApusRubus"]),
     ],
     dependencies: [
-        
         .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0"),
         .package(url: "https://github.com/vapor/leaf.git", from: "4.0.0"),
         .package(url: "https://github.com/doHernandezM/SwiftyPi.git", .exact("0.4.1")),

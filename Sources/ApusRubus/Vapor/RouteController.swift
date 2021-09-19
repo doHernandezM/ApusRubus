@@ -17,7 +17,7 @@ struct RouteController: RouteCollection {
     }
     
     
-    //MARK:Mister
+    //Mister stub for local homebridge server.
     func setMisterHandler(_ req: Request) -> String {
         let mode = req.parameters.get("mode")
        print(mode)

@@ -8,6 +8,7 @@
 import Foundation
 import SwiftyPi
 
+///Access all the vapor goodness here. You should not need to modify any of the vapor stuff directly, however, this code blocks the UI. So do not use vapor if you do not need it.
 public let vaporController: VaporController = VaporController()
 
 ///Controller for SwiftyPi devices.
