@@ -7,10 +7,13 @@
 
 import Leaf
 import Vapor
+import Dispatch
+import NIOPosix
 
 
 public class VaporController {
     
+    var workItem: DispatchWorkItem? = nil
     var env: Environment?
     var app: Application?
     
@@ -18,7 +21,7 @@ public class VaporController {
     }
     
     public func start() {
-        DispatchQueue.global().async { [self] in
+        workItem = DispatchWorkItem { [self] in
             do {
                 
                 env = try Environment.detect()
@@ -41,6 +44,7 @@ public class VaporController {
                 return
             }
         }
+        DispatchQueue.global().async(execute: WorkItem)
     }
     
     //   public func routes() throws {
@@ -64,5 +68,6 @@ public class VaporController {
         app!.shutdown()
         app = nil
         env = nil
+        workItem?.cancel()
     }
 }
