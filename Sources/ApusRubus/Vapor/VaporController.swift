@@ -44,7 +44,9 @@ public class VaporController {
                 return
             }
         }
-        DispatchQueue.global().async(execute: WorkItem)
+        if workItem == nil {return}
+        
+        DispatchQueue.global().async(execute: workItem!)
     }
     
     //   public func routes() throws {
