@@ -9,7 +9,7 @@ import Foundation
 import SwiftyPi
 
 ///Access all the vapor goodness here. You should not need to modify any of the vapor stuff directly, however, this code blocks the UI. So do not use vapor if you do not need it.
-public let vaporController: VaporController? = nil
+public var vaporController: VaporController? = nil
 
 ///Controller for SwiftyPi devices.
 ///
@@ -22,8 +22,9 @@ open class DeviceController {
     private var loops:Int = 0
     
     ///Init the controller with the default time interval and loop
-    public init(runSever:Bool = true, devices: [SwiftyPiDevice]) {
+    public init(runSever:Bool, devices: [SwiftyPiDevice]) {
         if runSever {
+            vaporController = VaporController()
             vaporController?.start()
         }
         
@@ -31,8 +32,9 @@ open class DeviceController {
     }
     
     ///Init the controller with custom time interval and loop
-    public init(runSever:Bool = true, timeInterval: TimeInterval, loops: Int, devices: [SwiftyPiDevice]) {
+    public init(runSever:Bool, timeInterval: TimeInterval, loops: Int, devices: [SwiftyPiDevice]) {
         if runSever {
+            vaporController = VaporController()
             vaporController?.start()
         }
         
