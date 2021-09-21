@@ -67,9 +67,10 @@ public class VaporController {
     
     
     public func stop() {
+        workItem?.cancel()
         app!.shutdown()
         app = nil
         env = nil
-        workItem?.cancel()
+        
     }
 }
