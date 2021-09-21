@@ -58,4 +58,12 @@ open class DeviceController {
         }
     }
     
+    open func stop() {
+        vaporController?.stop()
+    }
+    
+    required public init() {
+        self.stop()
+    }
+    
 }

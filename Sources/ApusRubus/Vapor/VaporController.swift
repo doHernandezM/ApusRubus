@@ -60,7 +60,7 @@ public class VaporController {
     
     
     
-    public func stopVapor() {
+    public func stop() {
         app!.shutdown()
         app = nil
         env = nil
